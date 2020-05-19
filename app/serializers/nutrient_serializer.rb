@@ -1,4 +1,4 @@
 class NutrientSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :ntype, :nname, :nvalue, :nunit, :food_id
 end

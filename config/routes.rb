@@ -4,6 +4,7 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :foods, only: [:index]
       resources :nutrients, only: [:index]
+      resources :dailylogs, only: [:index]
     end
   end
 end

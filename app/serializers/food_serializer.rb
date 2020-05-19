@@ -1,4 +1,4 @@
 class FoodSerializer
   include FastJsonapi::ObjectSerializer
-  attributes 
+  attributes :name, :serving, :size, :weightInGrams
 end

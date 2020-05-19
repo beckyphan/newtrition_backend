@@ -26,8 +26,8 @@ gem 'bootsnap', '>= 1.4.2', require: false
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
 
-# convert dataa into format to be transferred across network as a string and reconstructed
-gem 'active_model_serializers'
+# convert data into format to be transferred across network as a string and reconstructed
+gem 'fast_jsonapi'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

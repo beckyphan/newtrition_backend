@@ -1,15 +1,18 @@
-class UserController < ApplicationController
+class UsersController < ApplicationController
 
   def create
+    new_user = User.new(username: params[username], password: params[password])
+    binding.pry
+    if new_user.save!
+      session[:user_id] = new_user.id
+      redirect_to '/'
+    else
+      flash.now[:alert] = "Please try again."
+      render 'new'
+    end
   end
-
-  def new
-  end 
 
   def show
-  end
-
-  def edit
   end
 
   def update

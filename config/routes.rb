@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :foods, only: [:index]
-      resources :nutrients, only: [:index]
-      resources :dailylogs, only: [:index]
+      resources :foods, only: [:index, :create, :update, :show, :destroy]
+      resources :nutrients, only: [:index, :create, :update, :show, :destroy]
+      resources :dailylogs, only: [:index, :create, :update, :show, :destroy]
     end
   end
 end

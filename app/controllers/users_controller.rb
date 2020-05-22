@@ -1,5 +1,10 @@
 class UsersController < ApplicationController
 
+  def index
+    users = User.all
+    render json: UserSerializer.new(users)
+  end
+
   def create
     new_user = User.new(username: params[:username], password: params[:password])
     existing_user = User.find_by(username: params[:username])

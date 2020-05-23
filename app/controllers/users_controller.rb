@@ -16,6 +16,7 @@ class UsersController < ApplicationController
       session[:user_id] = existing_user.id
       render json: UserSerializer.new(existing_user), status: :accepted
     else
+      reset_session
       render json: {}, status: :unauthorized
     end
 

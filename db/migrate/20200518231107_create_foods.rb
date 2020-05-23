@@ -2,7 +2,7 @@ class CreateFoods < ActiveRecord::Migration[6.0]
   def change
     create_table :foods do |t|
       t.string :name
-      t.integer :serving
+      t.decimal :serving
       t.string :size
       t.integer :weight
       t.integer :calories, default: 0

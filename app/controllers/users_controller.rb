@@ -6,10 +6,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     new_user = User.new(username: params[:username], password: params[:password], dri_id: 1)
     existing_user = User.find_by(username: params[:username])
-    binding.pry
     if new_user.save
       render json: UserSerializer.new(new_user), status: :accepted
     elsif existing_user && existing_user.authenticate(params[:password])

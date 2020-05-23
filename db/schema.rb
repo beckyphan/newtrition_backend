@@ -27,9 +27,11 @@ ActiveRecord::Schema.define(version: 2020_05_18_234207) do
     t.string "name"
     t.integer "serving"
     t.string "size"
+    t.bigint "dailylog_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "weightInGrams"
+    t.integer "grams"
+    t.index ["dailylog_id"], name: "index_foods_on_dailylog_id"
   end
 
   create_table "nutrients", force: :cascade do |t|
@@ -50,13 +52,9 @@ ActiveRecord::Schema.define(version: 2020_05_18_234207) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.date "dob"
-    t.float "height"
-    t.float "weight"
-    t.float "bmi"
-    t.string "gender"
   end
 
   add_foreign_key "dailylogs", "users"
+  add_foreign_key "foods", "dailylogs"
   add_foreign_key "nutrients", "foods"
 end

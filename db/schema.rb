@@ -40,19 +40,19 @@ ActiveRecord::Schema.define(version: 2020_05_18_231107) do
 
   create_table "foods", force: :cascade do |t|
     t.string "name"
-    t.integer "serving"
+    t.decimal "serving"
     t.string "size"
-    t.integer "weight"
-    t.integer "calories", default: 0
-    t.integer "fat", default: 0
-    t.integer "sodium", default: 0
-    t.integer "potassium", default: 0
-    t.integer "carbohydrates", default: 0
-    t.integer "protein", default: 0
-    t.integer "vitaminA", default: 0
-    t.integer "vitaminC", default: 0
-    t.integer "calcium", default: 0
-    t.integer "iron", default: 0
+    t.float "weight"
+    t.float "calories", default: 0.0
+    t.float "fat", default: 0.0
+    t.float "sodium", default: 0.0
+    t.float "potassium", default: 0.0
+    t.float "carbohydrates", default: 0.0
+    t.float "protein", default: 0.0
+    t.float "vitaminA", default: 0.0
+    t.float "vitaminC", default: 0.0
+    t.float "calcium", default: 0.0
+    t.float "iron", default: 0.0
     t.bigint "dailylog_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -61,19 +61,19 @@ ActiveRecord::Schema.define(version: 2020_05_18_231107) do
 
   create_table "nutrientprofiles", force: :cascade do |t|
     t.string "name"
-    t.integer "serving"
+    t.decimal "serving"
     t.string "size"
-    t.integer "weight"
-    t.integer "calories", default: 0
-    t.integer "fat", default: 0
-    t.integer "sodium", default: 0
-    t.integer "potassium", default: 0
-    t.integer "carbohydrates", default: 0
-    t.integer "protein", default: 0
-    t.integer "vitaminA", default: 0
-    t.integer "vitaminC", default: 0
-    t.integer "calcium", default: 0
-    t.integer "iron", default: 0
+    t.float "weight"
+    t.float "calories", default: 0.0
+    t.float "fat", default: 0.0
+    t.float "sodium", default: 0.0
+    t.float "potassium", default: 0.0
+    t.float "carbohydrates", default: 0.0
+    t.float "protein", default: 0.0
+    t.float "vitaminA", default: 0.0
+    t.float "vitaminC", default: 0.0
+    t.float "calcium", default: 0.0
+    t.float "iron", default: 0.0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

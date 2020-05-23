@@ -11,7 +11,6 @@ class CreateDris < ActiveRecord::Migration[6.0]
       t.integer :vitaminC, default: 90
       t.integer :calcium, default: 1300
       t.integer :iron, default: 18
-      t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps
     end

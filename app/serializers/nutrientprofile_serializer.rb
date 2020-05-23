@@ -1,5 +1,4 @@
 class NutrientprofileSerializer
   include FastJsonapi::ObjectSerializer
-  attributes :ntype, :nname, :nvalue, :nunit, :food_id
-  belongs_to :food
+  attributes :name, :serving, :size, :weight, :calories, :fat, :sodium, :potassium, :carbohydrates, :protein, :vitaminA, :vitaminC, :calcium, :iron
 end

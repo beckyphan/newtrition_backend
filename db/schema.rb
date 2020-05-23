@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_234207) do
+ActiveRecord::Schema.define(version: 2020_05_18_231107) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,38 +23,72 @@ ActiveRecord::Schema.define(version: 2020_05_18_234207) do
     t.index ["user_id"], name: "index_dailylogs_on_user_id"
   end
 
+  create_table "dris", force: :cascade do |t|
+    t.integer "calories", default: 2000
+    t.integer "fat", default: 78
+    t.integer "sodium", default: 2300
+    t.integer "potassium", default: 4700
+    t.integer "carbohydrates", default: 275
+    t.integer "protein", default: 15
+    t.integer "vitaminA", default: 900
+    t.integer "vitaminC", default: 90
+    t.integer "calcium", default: 1300
+    t.integer "iron", default: 18
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "foods", force: :cascade do |t|
     t.string "name"
     t.integer "serving"
     t.string "size"
+    t.integer "weight"
+    t.integer "calories", default: 0
+    t.integer "fat", default: 0
+    t.integer "sodium", default: 0
+    t.integer "potassium", default: 0
+    t.integer "carbohydrates", default: 0
+    t.integer "protein", default: 0
+    t.integer "vitaminA", default: 0
+    t.integer "vitaminC", default: 0
+    t.integer "calcium", default: 0
+    t.integer "iron", default: 0
     t.bigint "dailylog_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.integer "grams"
     t.index ["dailylog_id"], name: "index_foods_on_dailylog_id"
   end
 
-  create_table "nutrients", force: :cascade do |t|
-    t.string "ntype"
-    t.string "nname"
-    t.integer "nvalue"
-    t.string "nunit"
-    t.bigint "food_id", null: false
+  create_table "nutrientprofiles", force: :cascade do |t|
+    t.string "name"
+    t.integer "serving"
+    t.string "size"
+    t.integer "weight"
+    t.integer "calories", default: 0
+    t.integer "fat", default: 0
+    t.integer "sodium", default: 0
+    t.integer "potassium", default: 0
+    t.integer "carbohydrates", default: 0
+    t.integer "protein", default: 0
+    t.integer "vitaminA", default: 0
+    t.integer "vitaminC", default: 0
+    t.integer "calcium", default: 0
+    t.integer "iron", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["food_id"], name: "index_nutrients_on_food_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
     t.string "username"
     t.string "email"
     t.string "password_digest"
+    t.bigint "dris_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["dris_id"], name: "index_users_on_dris_id"
   end
 
   add_foreign_key "dailylogs", "users"
   add_foreign_key "foods", "dailylogs"
-  add_foreign_key "nutrients", "foods"
+  add_foreign_key "users", "dris", column: "dris_id"
 end

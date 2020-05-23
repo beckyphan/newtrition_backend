@@ -82,13 +82,13 @@ ActiveRecord::Schema.define(version: 2020_05_18_231107) do
     t.string "username"
     t.string "email"
     t.string "password_digest"
-    t.bigint "dris_id", null: false
+    t.bigint "dri_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["dris_id"], name: "index_users_on_dris_id"
+    t.index ["dri_id"], name: "index_users_on_dri_id"
   end
 
   add_foreign_key "dailylogs", "users"
   add_foreign_key "foods", "dailylogs"
-  add_foreign_key "users", "dris", column: "dris_id"
+  add_foreign_key "users", "dris"
 end

@@ -6,7 +6,10 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+Dri.destroy_all
 Nutrientprofile.destroy_all
+
+dri = Dri.create(calories: 2000, fat: 65, sodium: 2300, potassium: 4700, carbohydrates: 275, protein: 50, vitaminA: 900, vitaminC: 90, calcium: 1300, iron: 18)
 
 nutrientprofiles = Nutrientprofile.create([
   {name: 'Asparagus',	serving: 5,	size: 'spears',	weight: 93,	calories: 20,	fat: 0,	sodium: 0,	potassium: 230,	carbohydrates: 4,	protein: 2,	vitaminA: 90,	vitaminC: 13.5,	calcium: 26,	iron: 0.36},

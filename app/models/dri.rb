@@ -1,0 +1,2 @@
+class Dri < ApplicationRecord
+end

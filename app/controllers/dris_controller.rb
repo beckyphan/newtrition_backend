@@ -9,6 +9,11 @@ class DrisController < ApplicationController
     render json: DriSerializer.new(dri), status: :accepted
   end
 
+  def show
+    dri = Dri.find_by(id: params[:id])
+    render json: DriSerializer.new(dri), status: :accepted
+  end
+
   private
 
   def dri_params
